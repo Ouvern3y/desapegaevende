@@ -1,0 +1,2668 @@
+/* ============================================================
+   DESAPEGA & VENDE — SISTEMA VISUAL EDITORIAL (HUMAN-DESIGNED)
+   Direção de Arte: Editorial, Clean, Sofisticada, Feminina e Orgânica
+   Inspirada em marcas brasileiras independentes e publicações de moda/lifestyle
+   Paleta: Rosa Queimado (#C98283), Verde Sálvia (#A8B5A2), Creme Linho (#FAF6F0), Carvão (#272422)
+   Tipografia: Playfair Display + Inter
+============================================================ */
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS & VARIÁVEIS
+------------------------------------------------------------ */
+:root {
+  /* Cores Principais com Nuances Orgânicas */
+  --rosa: #C98283;
+  --rosa-hover: #b87172;
+  --rosa-escuro: #8C4C52;
+  --rosa-suave: #FBF4F4;
+  --rosa-borda: #EED7D8;
+
+  --salvia: #8E9E88;
+  --salvia-dark: #4F5E4B;
+  --salvia-suave: #F2F5F1;
+  --salvia-borda: #D8E0D6;
+
+  --creme-fundo: #FAF6F0;
+  --creme-papel: #F4EFE7;
+  --creme-escuro: #EAE3D7;
+  --branco: #FFFFFF;
+
+  --carvao: #272422;
+  --carvao-medio: #4E4945;
+  --carvao-suave: #7A736C;
+  --carvao-fundo: #221F1D;
+
+  --linha-suave: #EAE3D9;
+  --linha-media: #DCD3C7;
+
+  /* Tipografia */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Grid & Dimensões Smartphone */
+  --mobile-w: 480px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Sombras Táticas e Naturais (Sem o visual artificial de IA) */
+  --sombra-suave: 0 4px 20px rgba(39, 36, 34, 0.04);
+  --sombra-card: 0 6px 24px rgba(39, 36, 34, 0.05);
+  --sombra-btn: 0 6px 20px rgba(201, 130, 131, 0.28);
+  --sombra-flutuante: 0 12px 36px rgba(39, 36, 34, 0.09);
+  --transicao: 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------
+   2. RESET & BASE DO SMARTPHONE
+------------------------------------------------------------ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: #E8E2D8; /* Fundo calmo e neutro para enquadrar no desktop */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--branco);
+  color: var(--carvao);
+  line-height: 1.62;
+  font-size: 1rem;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: var(--mobile-w);
+  margin: 0 auto;
+  min-height: 100vh;
+  box-shadow: 0 0 45px rgba(39, 36, 34, 0.12);
+  position: relative;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transicao);
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ------------------------------------------------------------
+   3. TIPOGRAFIA EDITORIAL HUMANA
+------------------------------------------------------------ */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  color: var(--carvao);
+  line-height: 1.22;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.88rem;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+h2 {
+  font-size: 1.62rem;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* Destaque Tipográfico Editorial (Headline Accent) */
+.headline-accent {
+  color: var(--rosa-escuro);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+
+.headline-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -2px;
+  right: -2px;
+  height: 6px;
+  background-color: rgba(201, 130, 131, 0.2);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.text-accent-salvia {
+  color: var(--salvia-dark);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.manifesto-headline-accent {
+  color: var(--rosa);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 1.32;
+}
+
+p {
+  color: var(--carvao-medio);
+  font-size: 0.98rem;
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text-lead {
+  font-size: 1.05rem;
+  line-height: 1.68;
+  color: var(--carvao-medio);
+}
+
+/* NOVO: Eyebrows Editoriais Elegantes (Substitui as "pills com bolinha" de IA) */
+.editorial-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.85rem;
+}
+
+.editorial-eyebrow.text-center {
+  justify-content: center;
+}
+
+.eyebrow-num {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rosa);
+  font-style: italic;
+}
+
+.eyebrow-sep {
+  color: var(--linha-media);
+  font-size: 0.85rem;
+}
+
+.eyebrow-text {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--carvao-suave);
+}
+
+.editorial-eyebrow--salvia .eyebrow-num {
+  color: var(--salvia-dark);
+}
+
+.editorial-eyebrow--salvia .eyebrow-text {
+  color: var(--salvia-dark);
+}
+
+/* ------------------------------------------------------------
+   4. LAYOUT & SEÇÕES
+------------------------------------------------------------ */
+.container {
+  width: 100%;
+  padding: 0 1.35rem;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 3.6rem 0;
+  position: relative;
+}
+
+.section--creme {
+  background-color: var(--creme-fundo);
+}
+
+.section--branco {
+  background-color: var(--branco);
+}
+
+.section--papel {
+  background-color: var(--creme-papel);
+}
+
+.section-header {
+  margin-bottom: 2.2rem;
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header h2 {
+  margin-bottom: 0.65rem;
+}
+
+.section-header .subheadline {
+  font-size: 1.02rem;
+  color: var(--carvao-suave);
+  line-height: 1.55;
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* ------------------------------------------------------------
+   5. BOTÕES COM ACABAMENTO DE BOUTIQUE
+------------------------------------------------------------ */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  background-color: var(--rosa);
+  color: var(--branco);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1.15rem 1.4rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--sombra-btn);
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+  cursor: pointer;
+  min-height: 54px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn:active {
+  background-color: var(--rosa-hover);
+  transform: scale(0.985);
+  box-shadow: 0 3px 10px rgba(201, 130, 131, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--carvao);
+  outline-offset: 3px;
+}
+
+/* Microcopy com Ícones Vetoriais Finos (Sem emojis) */
+.microcopy-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  color: var(--carvao-suave);
+  margin-top: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+.microcopy-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.microcopy-icon {
+  color: var(--rosa);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.microcopy-divider {
+  color: var(--linha-media);
+}
+
+/* ------------------------------------------------------------
+   5.5. FAIXA DE ANÚNCIO DE TOPO (ESCASSEZ & URGÊNCIA)
+------------------------------------------------------------ */
+.top-announcement-bar {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #6B2329 0%, #8C3038 50%, #6B2329 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.74rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 10px rgba(107, 35, 41, 0.25);
+  position: relative;
+  z-index: 90;
+  user-select: none;
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.scarcity-pulse-indicator {
+  width: 7px;
+  height: 7px;
+  background-color: #FF5A68;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 rgba(255, 90, 104, 0.7);
+  animation: scarcityPulse 1.8s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes scarcityPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 104, 0.75);
+    transform: scale(0.95);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 90, 104, 0);
+    transform: scale(1.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 90, 104, 0);
+    transform: scale(0.95);
+  }
+}
+
+.announcement-text {
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.announcement-date {
+  font-weight: 800;
+  color: #FFE6E8;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------
+   6. HERO SECTION
+------------------------------------------------------------ */
+.hero {
+  padding: 2.8rem 0 3.2rem;
+  background-color: var(--creme-fundo);
+  border-bottom: 1px solid var(--linha-suave);
+}
+
+.hero-header-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1.6rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--linha-suave);
+}
+
+.hero-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--carvao);
+}
+
+.hero-brand-category {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rosa-escuro);
+}
+
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 1.95rem;
+  line-height: 1.22;
+  color: var(--carvao);
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.015em;
+}
+
+.hero-title-accent {
+  color: var(--rosa-escuro);
+  font-style: italic;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -2px;
+  right: -2px;
+  height: 8px;
+  background-color: rgba(201, 130, 131, 0.22);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.hero-subheadline {
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: var(--carvao-medio);
+  margin-bottom: 1.5rem;
+}
+
+.hero-subheadline strong {
+  color: var(--carvao);
+  font-weight: 600;
+}
+
+/* Bloco de tranquilização & alívio de objeções com acabamento editorial */
+.hero-reassurance-card {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-sm);
+  padding: 1.05rem 1.15rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 8px 24px rgba(39, 36, 34, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.reassurance-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.reassurance-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.reassurance-icon--no {
+  background-color: #FDF2F2;
+  color: #C04E56;
+}
+
+.reassurance-icon--yes {
+  background-color: #EFF5ED;
+  color: #4D6E44;
+}
+
+.reassurance-text {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--carvao-medio);
+  margin: 0;
+}
+
+.reassurance-text strong {
+  color: var(--carvao);
+  font-weight: 600;
+}
+
+.reassurance-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--linha-suave);
+}
+
+.hero-visual {
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+.hero-image-card {
+  background-color: var(--branco);
+  padding: 10px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--linha-suave);
+}
+
+.hero-image-card img,
+.hero-image-card svg {
+  border-radius: calc(var(--radius-md) - 4px);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   7. BLOCO: IDENTIFICAÇÃO (MONÓLOGO DO ARMÁRIO)
+------------------------------------------------------------ */
+.dialogue-narrative {
+  margin-bottom: 2rem;
+}
+
+.monologue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2.2rem;
+}
+
+/* ------------------------------------------------------------
+   7.5. SHOWCASE VISUAL: DÚVIDAS PASSANDO PELA CABEÇA
+------------------------------------------------------------ */
+.thoughts-showcase {
+  margin-top: 2.2rem;
+  padding: 2.2rem 1.15rem 1.8rem;
+  background: radial-gradient(circle at 50% 30%, #FFFFFF 0%, #FAF6F1 100%);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(39, 36, 34, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.thoughts-header {
+  margin-bottom: 1.8rem;
+}
+
+.thoughts-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  line-height: 1.25;
+  color: var(--carvao);
+  margin-bottom: 0.6rem;
+}
+
+.thoughts-subtitle {
+  font-size: 0.92rem;
+  color: var(--carvao-suave);
+  line-height: 1.5;
+}
+
+/* Container da Composição */
+.thoughts-composition {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0.85rem 0.65rem;
+  position: relative;
+  margin: 1.8rem 0;
+}
+
+/* Balões de Dúvidas (Estilo Idêntico à Referência com Acabamento Editorial) */
+.thought-bubble {
+  background: #25161B; /* Vinho profundo / berinjela escuro da identidade */
+  color: #FFFFFF;
+  padding: 0.85rem 0.8rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 22px rgba(37, 22, 27, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.45rem;
+  position: relative;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.thought-bubble:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 22, 27, 0.28);
+}
+
+/* Indicadores / Ícones dos Balões */
+.thought-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(201, 130, 131, 0.28);
+  color: #F8D8DA;
+  flex-shrink: 0;
+}
+
+.thought-text {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #FAF6F0;
+  margin: 0;
+}
+
+/* Bolinhas Indicadoras de Pensamento (Thought Bubble Tails) */
+.thought-bubble--tl::after,
+.thought-bubble--tr::after,
+.thought-bubble--bl::after,
+.thought-bubble--br::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #25161B;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.thought-bubble--tl::after {
+  bottom: -8px;
+  right: 22px;
+}
+
+.thought-bubble--tr::after {
+  bottom: -8px;
+  left: 22px;
+}
+
+.thought-bubble--bl::after {
+  top: -8px;
+  right: 22px;
+}
+
+.thought-bubble--br::after {
+  top: -8px;
+  left: 22px;
+}
+
+/* Centro: Avatar da Pessoa Pensativa */
+.thoughts-portrait-hub {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0.4rem 0;
+  z-index: 2;
+}
+
+.portrait-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--branco);
+  box-shadow: 0 10px 30px rgba(39, 36, 34, 0.16);
+  background-color: var(--branco);
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.portrait-glow-pulse {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 130, 131, 0.28) 0%, rgba(201, 130, 131, 0) 70%);
+  z-index: 1;
+}
+
+/* Rodapé Conclusão da Identificação */
+.thoughts-footer {
+  margin-top: 1.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--linha-suave);
+}
+
+.thoughts-warning {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--rosa-escuro);
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+.thoughts-warning em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.thoughts-call {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--carvao-medio);
+}
+
+.thoughts-call strong {
+  color: var(--carvao);
+  font-weight: 600;
+}
+
+/* Responsividade refinada para telas um pouco mais largas */
+@media (min-width: 440px) {
+  .thought-bubble {
+    padding: 0.95rem 0.9rem;
+  }
+  .thought-text {
+    font-size: 0.82rem;
+  }
+  .portrait-avatar {
+    width: 155px;
+    height: 155px;
+  }
+  .portrait-glow-pulse {
+    width: 175px;
+    height: 175px;
+  }
+}
+
+/* ------------------------------------------------------------
+   8. BLOCO: REFRAME (O PROCESSO)
+------------------------------------------------------------ */
+.reframe-card {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.4rem;
+  box-shadow: var(--sombra-card);
+}
+
+.reframe-highlight {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--rosa-escuro);
+  margin-bottom: 1.3rem;
+  line-height: 1.35;
+  font-style: italic;
+}
+
+.reframe-flow-graphic-wrapper {
+  margin: 1.4rem auto 1.6rem;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reframe-flow-graphic-img {
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  display: block;
+  filter: drop-shadow(0 6px 20px rgba(39, 36, 34, 0.05));
+  transition: transform var(--transicao);
+}
+
+.reframe-flow-graphic-img:hover {
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   9. BLOCO: QUEBRA DE OBJEÇÕES
+------------------------------------------------------------ */
+.objections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.objection-item {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.objection-doubt {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--carvao-suave);
+  font-style: italic;
+}
+
+.objection-answer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--carvao);
+}
+
+.objection-bullet {
+  color: var(--salvia-dark);
+}
+
+.objections-closure {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.3rem;
+  background-color: var(--salvia-suave);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--salvia-borda);
+}
+
+.objections-closure p {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--salvia-dark);
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   10. BLOCO: MECANISMO (7 ETAPAS)
+------------------------------------------------------------ */
+.mechanism-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.step-card {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sombra-card);
+}
+
+.step-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--creme-fundo);
+}
+
+.step-media img,
+.step-media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.step-body {
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.step-index {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--rosa);
+  font-style: italic;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0;
+}
+
+.step-desc {
+  font-size: 0.94rem;
+  color: var(--carvao-medio);
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   11. BLOCO: DIFERENCIAÇÃO (MANIFESTO EDITORIAL / UX UPGRADE)
+------------------------------------------------------------ */
+.manifesto-spread {
+  background: radial-gradient(130% 100% at 50% 0%, #2D2723 0%, #1D1A18 70%, #151312 100%);
+  color: var(--branco);
+  border-radius: var(--radius-md);
+  padding: 3rem 1.6rem 2.4rem;
+  text-align: center;
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(201, 130, 131, 0.25);
+  position: relative;
+  overflow: hidden;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.manifesto-spread::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rosa), transparent);
+  opacity: 0.6;
+}
+
+.manifesto-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201, 130, 131, 0.14);
+  border: 1px solid rgba(201, 130, 131, 0.35);
+  border-radius: 999px;
+  padding: 0.35rem 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFD5D7;
+  margin-bottom: 1.1rem;
+}
+
+.manifesto-live-indicator {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.manifesto-pretitle {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rosa);
+  margin-bottom: 0.5rem;
+  opacity: 0.95;
+}
+
+.manifesto-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  color: var(--branco);
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.manifesto-copy {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #DDD6CF;
+  margin: 0 auto 2.2rem;
+  max-width: 580px;
+}
+
+.manifesto-copy strong {
+  color: var(--branco);
+}
+
+/* 4 Steps UX Flow */
+.manifesto-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0 auto 2.2rem;
+  text-align: left;
+  max-width: 620px;
+}
+
+.manifesto-step-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.manifesto-step-item:hover {
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(201, 130, 131, 0.35);
+  transform: translateY(-2px);
+}
+
+.step-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.step-emoji {
+  font-size: 1.35rem;
+  line-height: 1;
+  display: inline-block;
+}
+
+.manifesto-step-bullet {
+  color: var(--rosa);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(201, 130, 131, 0.15);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid rgba(201, 130, 131, 0.25);
+}
+
+.step-item-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step-item-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.step-item-desc {
+  font-size: 0.84rem;
+  color: #BDB4AA;
+  line-height: 1.4;
+}
+
+.step-item-status {
+  flex-shrink: 0;
+}
+
+.step-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(168, 181, 162, 0.2);
+  color: #C0CEBA;
+  border: 1px solid rgba(168, 181, 162, 0.4);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Anti-Curso Friction Killers */
+.manifesto-anti-curso-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0 auto 2.2rem;
+  max-width: 620px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.4rem;
+  text-align: left;
+}
+
+.anti-curso-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #D6CEC5;
+  line-height: 1.45;
+}
+
+.anti-curso-item strong {
+  color: #FFFFFF;
+}
+
+.anti-curso-badge {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Bento Grid / Formula */
+.manifesto-formula {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 1.8rem 1.4rem;
+  margin: 0 auto;
+  max-width: 620px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.formula-header {
+  margin-bottom: 1.3rem;
+  text-align: center;
+}
+
+.formula-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rosa);
+  margin-bottom: 0.35rem;
+}
+
+.formula-title {
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  color: var(--branco);
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.formula-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xs);
+  padding: 1.15rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.formula-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(201, 130, 131, 0.35);
+  transform: translateY(-2px);
+}
+
+.formula-card-step {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rosa);
+  margin-bottom: 0.35rem;
+}
+
+.formula-card-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.formula-card-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #F5EFEB;
+  line-height: 1.35;
+}
+
+.formula-card--highlight {
+  background: rgba(201, 130, 131, 0.12);
+  border-color: rgba(201, 130, 131, 0.45);
+  box-shadow: 0 4px 15px rgba(201, 130, 131, 0.15);
+}
+
+.formula-card--highlight .formula-card-name {
+  color: #FFFFFF;
+}
+
+@media (max-width: 580px) {
+  .manifesto-spread {
+    padding: 2.2rem 1.15rem 1.8rem;
+  }
+  
+  .manifesto-flow-steps {
+    gap: 0.75rem;
+  }
+  
+  .manifesto-step-item {
+    padding: 0.85rem 1rem;
+    gap: 12px;
+  }
+  
+  .step-emoji {
+    font-size: 1.25rem;
+  }
+  
+  .step-item-title {
+    font-size: 0.94rem;
+  }
+  
+  .step-item-desc {
+    font-size: 0.82rem;
+  }
+  
+  .anti-curso-item {
+    font-size: 0.88rem;
+  }
+
+  .manifesto-formula {
+    padding: 1.4rem 1rem;
+  }
+  
+  .formula-title {
+    font-size: 1.1rem;
+  }
+  
+  .formula-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+  
+  .formula-card {
+    padding: 1rem 0.65rem;
+  }
+  
+  .formula-card-icon {
+    font-size: 1.45rem;
+  }
+  
+  .formula-card-name {
+    font-size: 0.82rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   12. BLOCO: O QUE VOCÊ VAI FAZER NA PRÁTICA
+------------------------------------------------------------ */
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.curriculum-card {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-sm);
+  padding: 1.35rem 1.25rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.curriculum-step-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--salvia-dark);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.curriculum-card h3 {
+  font-size: 1.18rem;
+  margin-bottom: 0.4rem;
+}
+
+.curriculum-card p {
+  font-size: 0.94rem;
+  color: var(--carvao-medio);
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------
+   13. BLOCO: O PRODUTO (FERRAMENTAS PRÁTICAS)
+------------------------------------------------------------ */
+.toolkit-box {
+  background-color: var(--creme-fundo);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.35rem;
+}
+
+.toolkit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 1.6rem 0;
+}
+
+.toolkit-item {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-xs);
+  padding: 0.95rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--carvao);
+}
+
+.toolkit-icon-wrap {
+  color: var(--salvia-dark);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.toolkit-punchline {
+  text-align: center;
+  margin-top: 1.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px dashed var(--linha-media);
+}
+
+.toolkit-punchline p {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  color: var(--carvao);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   14. BLOCO: TRANSFORMAÇÃO (ANTES VS PROCESSO)
+------------------------------------------------------------ */
+.journey-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.journey-col {
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-col--before {
+  background-color: #FAF5F2;
+  border: 1px solid #EADCD3;
+}
+
+.journey-col--after {
+  background-color: var(--branco);
+  border: 2px solid var(--salvia);
+  box-shadow: var(--sombra-card);
+}
+
+.journey-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journey-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.journey-node {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-xs);
+  padding: 0.85rem 1rem;
+  font-size: 0.94rem;
+  color: var(--carvao-medio);
+}
+
+.journey-col--after .journey-node {
+  background-color: var(--creme-fundo);
+  border-color: #E2D9CC;
+  font-weight: 500;
+  color: var(--carvao);
+}
+
+.journey-arrow {
+  text-align: center;
+  color: var(--carvao-suave);
+  font-size: 0.85rem;
+  margin: -0.3rem 0;
+  opacity: 0.5;
+}
+
+.journey-disclaimer {
+  margin-top: 1.6rem;
+  font-size: 0.84rem;
+  color: var(--carvao-suave);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
+   15. BLOCO: PARA QUEM É
+------------------------------------------------------------ */
+.fit-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.fit-box {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.35rem;
+  box-shadow: var(--sombra-card);
+}
+
+.fit-box h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.3rem;
+}
+
+.fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.fit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.96rem;
+  color: var(--carvao-medio);
+  line-height: 1.48;
+}
+
+.fit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fit-icon--yes {
+  background-color: var(--salvia-suave);
+  color: var(--salvia-dark);
+}
+
+.fit-icon--no {
+  background-color: #FAEDED;
+  color: #B24646;
+}
+
+.fit-box--negative {
+  background-color: var(--creme-fundo);
+}
+
+/* ------------------------------------------------------------
+   15B. BLOCO: IDENTIFICAÇÃO REAL (PERSONAS DE PROVA SOCIAL)
+------------------------------------------------------------ */
+.personas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 760px;
+  margin: 0 auto 2.8rem;
+}
+
+.persona-card {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.2rem;
+  box-shadow: var(--sombra-card);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.persona-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(41, 39, 37, 0.12);
+}
+
+.persona-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--linha-suave);
+  margin-bottom: 1.3rem;
+}
+
+.persona-avatar-frame {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 3px solid var(--branco);
+  outline: 2px solid var(--rosa);
+  box-shadow: 0 6px 18px rgba(201, 130, 131, 0.28);
+  background-color: var(--creme-fundo);
+}
+
+.persona-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.persona-header-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.persona-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 0.25rem;
+}
+
+.persona-tag {
+  background: rgba(35, 31, 28, 0.85);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.persona-context {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rosa);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.persona-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--carvao-escuro);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.persona-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.persona-situation {
+  font-size: 0.98rem;
+  color: var(--carvao-medio);
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+}
+
+.persona-quote {
+  background-color: var(--creme-fundo);
+  border-left: 3px solid var(--rosa);
+  padding: 1rem 1.2rem;
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--carvao-escuro);
+  margin: 0 0 1.4rem 0;
+}
+
+.persona-checklist {
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--linha-suave);
+}
+
+.checklist-title {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--carvao-suave);
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
+.checklist-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist-items li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--carvao-escuro);
+  line-height: 1.4;
+}
+
+.checklist-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--salvia-suave);
+  color: var(--salvia-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Transição Conectiva com o Produto */
+.personas-transition {
+  background: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-md);
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  box-shadow: var(--sombra-suave);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.transition-highlight {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  color: var(--carvao-escuro);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.transition-highlight strong {
+  color: var(--rosa);
+  font-style: italic;
+}
+
+.transition-sub {
+  font-size: 0.94rem;
+  color: var(--carvao-medio);
+  margin-bottom: 1.4rem;
+}
+
+.transition-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pipeline-node {
+  background: var(--creme-fundo);
+  border: 1px solid var(--linha-suave);
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--carvao-medio);
+  text-transform: uppercase;
+}
+
+.pipeline-node--highlight {
+  background: rgba(201, 130, 131, 0.18);
+  border-color: var(--rosa);
+  color: var(--rosa);
+  box-shadow: 0 2px 10px rgba(201, 130, 131, 0.2);
+}
+
+.pipeline-sep {
+  color: var(--rosa);
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 680px) {
+  .persona-card {
+    padding: 1.6rem 1.25rem;
+  }
+
+  .persona-card-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .persona-avatar-frame {
+    width: 100px;
+    height: 100px;
+  }
+
+  .persona-badge-row {
+    justify-content: center;
+  }
+
+  .persona-quote {
+    font-size: 0.98rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .personas-transition {
+    padding: 1.8rem 1.15rem;
+  }
+  
+  .transition-highlight {
+    font-size: 1.15rem;
+  }
+  
+  .transition-pipeline {
+    gap: 6px;
+  }
+  
+  .pipeline-node {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   16. BLOCO: OFERTA (PRODUTO BOUTIQUE)
+------------------------------------------------------------ */
+.boutique-offer-card {
+  background-color: var(--branco);
+  border: 2px solid var(--rosa);
+  border-radius: var(--radius-md);
+  box-shadow: var(--sombra-flutuante);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 1.5rem;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+@keyframes cardPulse {
+  0% { transform: scale(1); box-shadow: var(--sombra-flutuante); }
+  50% { transform: scale(1.02); box-shadow: 0 10px 32px rgba(201, 130, 131, 0.42); }
+  100% { transform: scale(1); box-shadow: var(--sombra-flutuante); }
+}
+
+.boutique-offer-card.highlight-pulse {
+  animation: cardPulse 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Barra de Urgência & Escassez (Cronômetro 15min + Compradores 24h) */
+.offer-urgency-bar {
+  background: linear-gradient(135deg, #221318 0%, #381A22 100%);
+  color: #FFFFFF;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.urgency-timer-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.urgency-timer-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F0D3D6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.urgency-countdown {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.countdown-digit {
+  min-width: 1.3ch;
+  text-align: center;
+  display: inline-block;
+}
+
+.countdown-separator {
+  margin: 0 1px;
+  opacity: 0.85;
+  animation: colonBlink 1s infinite;
+}
+
+@keyframes colonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+.urgency-buyers-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #FAF6F0;
+}
+
+.urgency-flame-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgba(255, 120, 80, 0.5));
+}
+
+.urgency-buyers-text {
+  font-size: 0.78rem;
+  color: #FAF6F0;
+  line-height: 1.25;
+}
+
+.urgency-buyers-text strong {
+  color: #FFC0C6;
+  font-weight: 700;
+}
+
+.offer-header-banner {
+  background-color: var(--rosa-suave);
+  border-bottom: 1px solid var(--rosa-borda);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rosa-escuro);
+}
+
+.offer-inner-content {
+  padding: 2rem 1.35rem 2.4rem;
+}
+
+.offer-lead-heading {
+  font-size: 1.22rem;
+  color: var(--carvao-suave);
+  font-family: var(--font-serif);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.offer-brand-title {
+  font-size: 2rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.offer-brand-desc {
+  font-size: 0.96rem;
+  color: var(--carvao-medio);
+  line-height: 1.58;
+  margin-bottom: 1.4rem;
+}
+
+.offer-mockup-wrapper {
+  margin: 0 auto 1.8rem;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-mockup-img {
+  width: 100%;
+  max-width: 270px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(39, 36, 34, 0.16));
+  transition: transform var(--transicao);
+}
+
+.offer-mockup-img:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.offer-manifest-box {
+  background-color: var(--creme-fundo);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--linha-suave);
+  padding: 1.25rem 1.15rem;
+  text-align: left;
+  margin-bottom: 1.8rem;
+}
+
+.offer-manifest-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--carvao-suave);
+  margin-bottom: 0.85rem;
+}
+
+.offer-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.offer-checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.94rem;
+  color: var(--carvao);
+  font-weight: 500;
+}
+
+.offer-check-mark {
+  color: var(--rosa);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.offer-pricing-lockup {
+  margin-bottom: 1.8rem;
+}
+
+.offer-price-term {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--carvao-suave);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.offer-price-amount {
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--carvao);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.offer-price-currency {
+  font-size: 1.6rem;
+  margin-right: 3px;
+  font-weight: 600;
+}
+
+.offer-price-terms {
+  font-size: 0.86rem;
+  color: var(--carvao-suave);
+  margin-top: 0.4rem;
+}
+
+/* ------------------------------------------------------------
+   17. BLOCO: GARANTIA INCONDICIONAL (7 DIAS) - LUXURY TRUST CARD
+------------------------------------------------------------ */
+.guarantee-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6F0 100%);
+  border: 1px solid var(--linha-suave);
+  border-top: 4px solid var(--rosa);
+  border-radius: var(--radius-md);
+  padding: 3rem 2.2rem 2.6rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 20px 45px -15px rgba(41, 39, 37, 0.08);
+  position: relative;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.guarantee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 50px -15px rgba(41, 39, 37, 0.12);
+}
+
+.guarantee-seal-wrap {
+  width: 150px;
+  height: 150px;
+  margin: -0.5rem auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.guarantee-seal-wrap:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.guarantee-seal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(201, 130, 131, 0.25));
+}
+
+.guarantee-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  color: var(--carvao-escuro);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.guarantee-subheadline {
+  font-size: 1.02rem;
+  color: var(--rosa);
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.guarantee-body {
+  margin-bottom: 2rem;
+}
+
+.guarantee-body p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--carvao-medio);
+  margin-bottom: 1.1rem;
+}
+
+.guarantee-body p:last-child {
+  margin-bottom: 0;
+}
+
+.guarantee-body strong {
+  color: var(--carvao-escuro);
+}
+
+/* 3 Pilares de Confiança */
+.guarantee-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1rem;
+  margin-bottom: 2.2rem;
+  box-shadow: var(--sombra-suave);
+}
+
+.guarantee-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.pillar-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.pillar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pillar-text strong {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--carvao-escuro);
+}
+
+.pillar-text span {
+  font-size: 0.76rem;
+  color: var(--carvao-suave);
+  line-height: 1.3;
+}
+
+.guarantee-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.guarantee-action .btn {
+  max-width: 380px;
+  width: 100%;
+}
+
+.guarantee-secure-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--carvao-suave);
+  font-weight: 500;
+}
+
+.guarantee-secure-note svg {
+  color: var(--salvia-dark);
+}
+
+@media (max-width: 680px) {
+  .guarantee-card {
+    padding: 2.2rem 1.25rem 1.8rem;
+  }
+
+  .guarantee-seal-wrap {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 1.1rem;
+  }
+
+  .guarantee-pillars {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1.1rem 1rem;
+    text-align: left;
+  }
+
+  .guarantee-pillar {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 12px;
+  }
+
+  .pillar-icon {
+    font-size: 1.3rem;
+  }
+}
+
+/* ------------------------------------------------------------
+   18. FAQ (ACCORDION REFINADO COM CHEVRON SVG)
+------------------------------------------------------------ */
+.faq-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.faq-entry {
+  background-color: var(--branco);
+  border: 1px solid var(--linha-suave);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color var(--transicao);
+}
+
+.faq-entry[open] {
+  border-color: var(--rosa);
+  box-shadow: var(--sombra-suave);
+}
+
+.faq-prompt {
+  width: 100%;
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--carvao);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq-prompt::-webkit-details-marker {
+  display: none;
+}
+
+.faq-chevron {
+  color: var(--carvao-suave);
+  transition: transform var(--transicao), color var(--transicao);
+  flex-shrink: 0;
+}
+
+.faq-entry[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--rosa);
+}
+
+.faq-response {
+  padding: 0 1.25rem 1.25rem;
+  color: var(--carvao-medio);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+/* ------------------------------------------------------------
+   19. CTA FINAL
+------------------------------------------------------------ */
+.final-cta-section {
+  padding: 4rem 0;
+  background-color: var(--creme-fundo);
+  border-top: 1px solid var(--linha-suave);
+}
+
+.final-cta-content {
+  text-align: center;
+}
+
+.final-cta-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.final-cta-narrative {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--carvao-medio);
+  margin-bottom: 2rem;
+}
+
+.final-brand-recap {
+  margin-bottom: 1.8rem;
+  padding: 1.3rem;
+  background-color: var(--branco);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--linha-suave);
+}
+
+.final-brand-title {
+  font-size: 1.25rem;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--carvao);
+  margin-bottom: 0.25rem;
+}
+
+.final-brand-motto {
+  font-size: 0.88rem;
+  color: var(--rosa-escuro);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ------------------------------------------------------------
+   20. FOOTER
+------------------------------------------------------------ */
+.site-footer {
+  background-color: var(--carvao-fundo);
+  color: #9E9790;
+  padding: 3rem 0 calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  font-size: 0.82rem;
+  line-height: 1.58;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  text-align: center;
+}
+
+.footer-brand {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--branco);
+  letter-spacing: 0.04em;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav-link {
+  color: #D6CEC5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.82rem;
+}
+
+.footer-legal-copy {
+  font-size: 0.75rem;
+  color: #827C75;
+  line-height: 1.48;
+}
+
+/* ------------------------------------------------------------
+   21. STICKY MOBILE CTA BAR (DISCRETO & EFICAZ)
+------------------------------------------------------------ */
+.sticky-mobile-cta {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(115%);
+  width: 100%;
+  max-width: var(--mobile-w);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--linha-suave);
+  padding: 0.75rem 1.15rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-shadow: 0 -4px 20px rgba(39, 36, 34, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-mobile-cta.is-active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.sticky-cta-btn {
+  flex-grow: 1;
+  background-color: var(--rosa);
+  color: var(--branco);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-xs);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 12px rgba(201, 130, 131, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sticky-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--creme-fundo);
+  color: var(--carvao-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------------------
+   22. POP-UP DE PROVA SOCIAL (COMPRAS RECENTES)
+------------------------------------------------------------ */
+.purchase-popup {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(140%);
+  width: calc(100% - 1.8rem);
+  max-width: 400px;
+  background-color: var(--branco);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(39, 36, 34, 0.16), 0 2px 8px rgba(39, 36, 34, 0.06);
+  border: 1px solid var(--rosa-borda);
+  padding: 0.75rem 0.85rem;
+  z-index: 1020;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, bottom 0.3s ease;
+}
+
+.purchase-popup.is-visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Quando a barra de compra fixa estiver ativa, o popup sobe para não sobrepor */
+.sticky-mobile-cta.is-active ~ .purchase-popup {
+  bottom: calc(4.6rem + env(safe-area-inset-bottom, 0px));
+}
+
+.popup-avatar-col {
+  flex-shrink: 0;
+}
+
+.popup-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--rosa-suave);
+  color: var(--rosa-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rosa-borda);
+}
+
+.popup-info-col {
+  flex-grow: 1;
+  text-align: left;
+  line-height: 1.32;
+}
+
+.popup-buyer-line {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  flex-wrap: wrap;
+}
+
+.popup-name {
+  color: var(--carvao);
+  font-weight: 700;
+}
+
+.popup-location-bullet {
+  color: var(--linha-media);
+  font-size: 0.7rem;
+}
+
+.popup-location {
+  color: var(--carvao-suave);
+  font-size: 0.76rem;
+}
+
+.popup-action-line {
+  font-size: 0.79rem;
+  color: var(--carvao-medio);
+  margin: 0.15rem 0;
+}
+
+.popup-action-line strong {
+  color: var(--rosa-escuro);
+  font-weight: 700;
+}
+
+.popup-time-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.71rem;
+  color: var(--salvia-dark);
+  font-weight: 600;
+}
+
+.popup-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--salvia);
+  display: inline-block;
+  box-shadow: 0 0 0 2px rgba(142, 158, 136, 0.3);
+}
+
+.popup-close-btn {
+  background: none;
+  border: none;
+  color: var(--carvao-suave);
+  font-size: 0.85rem;
+  padding: 4px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transicao);
+  align-self: flex-start;
+}
+
+.popup-close-btn:hover {
+  opacity: 1;
+  color: var(--carvao);
+}
+
+/* ------------------------------------------------------------
+   VEJA COMO É FÁCIL COMEÇAR (ONBOARDING RÁPIDO & REDUÇÃO DE ATRITO)
+------------------------------------------------------------ */
+.section-facil-comecar {
+  background-color: var(--creme-papel);
+  padding: 3.2rem 0 3.4rem;
+  border-bottom: 1px solid var(--linha-suave);
+}
+
+.facil-comecar-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--carvao);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.facil-comecar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  margin-top: 1.8rem;
+}
+
+.facil-comecar-card {
+  background-color: var(--branco);
+  border: 1px solid rgba(220, 225, 235, 0.85);
+  border-radius: 20px;
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(39, 36, 34, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.facil-comecar-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39, 36, 34, 0.08);
+}
+
+.facil-comecar-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6fd552 0%, #52b83d 100%);
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 4px 12px rgba(82, 184, 61, 0.3);
+  margin-bottom: 1.1rem;
+}
+
+.facil-comecar-card-title {
+  font-family: var(--font-sans);
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--carvao);
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+.facil-comecar-card-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--carvao-medio);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 320px;
+}
+
