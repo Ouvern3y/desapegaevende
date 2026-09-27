@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none" width="100%" height="auto">
+  <defs>
+    <filter id="seal-pop" x="-20%" y="-20%" width="140%" height="140%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#1E293B" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#seal-pop)">
+    <!-- Circulo festonado pop em Amarelo Sol e Coral -->
+    <circle cx="80" cy="80" r="70" fill="#FFC700" stroke="#FF9900" stroke-width="4" />
+    <circle cx="80" cy="80" r="58" fill="#FFFFFF" stroke="#2B7FFF" stroke-width="3" />
+
+    <!-- Balãozinho divertido central -->
+    <path d="M52 68 C52 54 64 45 80 45 C96 45 108 54 108 68 C108 80 97 88 83 88 L73 96 V87 C60 85 52 78 52 68 Z" fill="#EBF4FF" stroke="#2B7FFF" stroke-width="2" />
+
+    <!-- Número 7 Pop 3D -->
+    <text x="80" y="78" font-family="'Fredoka', sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="#FF5A5F">7</text>
+    
+    <!-- Faixa inferior -->
+    <rect x="30" y="100" width="100" height="26" rx="13" fill="#2B7FFF" stroke="#FFFFFF" stroke-width="2" />
+    <text x="80" y="117" font-family="'Fredoka', sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#FFFFFF" letter-spacing="1">DIAS</text>
+
+    <!-- Estrelinhas brilhantes -->
+    <polygon points="80,24 82,29 87,30 83,34 84,39 80,36 76,39 77,34 73,30 78,29" fill="#FF5A5F" />
+    <polygon points="36,75 37.5,78 41,79 38,82 39,85 36,83 33,85 34,82 31,79 34.5,78" fill="#10B981" />
+    <polygon points="124,75 125.5,78 129,79 126,82 127,85 124,83 121,85 122,82 119,79 122.5,78" fill="#10B981" />
+  </g>
+</svg>
