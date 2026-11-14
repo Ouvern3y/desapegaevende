@@ -1,0 +1,1399 @@
+/* =========================================================
+   CHAVEIRINHOS DE NATAL — ESTILOS (MOBILE-FIRST)
+   ========================================================= */
+
+:root {
+  /* Paleta Natalina */
+  --color-red: #b91c1c;
+  --color-red-hover: #991b1b;
+  --color-red-soft: rgba(185, 28, 28, 0.08);
+  --color-green: #1b4332;
+  --color-green-mid: #2d6a4f;
+  --color-green-soft: rgba(27, 67, 50, 0.07);
+  --color-cream: #fdfbf7;
+  --color-cream-alt: #f7f1e5;
+  --color-gold: #d4af37;
+  --color-gold-soft: rgba(212, 175, 55, 0.22);
+  --color-white: #ffffff;
+
+  /* Texto e Bordas */
+  --color-text: #2c2420;
+  --color-text-muted: #5c5049;
+  --color-border: rgba(44, 36, 32, 0.1);
+
+  /* Tipografia */
+  --font-display: 'Fredoka', 'Nunito', system-ui, -apple-system, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+
+  /* Forma e Sombra */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 4px 14px rgba(27, 67, 50, 0.06);
+  --shadow-md: 0 10px 28px rgba(44, 36, 32, 0.09);
+  --shadow-cta: 0 8px 20px rgba(185, 28, 28, 0.28);
+
+  /* Espaçamento compacto mobile — mais junto e integrado */
+  --section-py: 22px;
+  --container-max: 440px;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.48;
+  color: var(--color-text);
+  background-color: #efe9dd;
+  overflow-x: clip;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Moldura mobile centralizada em telas maiores */
+.urgency-bar,
+.festive-top-bar,
+main,
+.site-footer {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+main {
+  background-color: var(--color-cream);
+  box-shadow: 0 0 28px rgba(44, 36, 32, 0.08);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, p, ul, figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================================
+   FAIXA DE URGÊNCIA (TOPO - VERMELHA E CHAMATIVA)
+   ========================================================= */
+.urgency-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  color: #ffffff;
+  padding: 9px 12px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(185, 28, 28, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.urgency-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.urgency-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  animation: pulse-urgency 1.6s ease-in-out infinite;
+}
+
+.urgency-text {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  line-height: 1.25;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes pulse-urgency {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0.85;
+  }
+}
+
+/* Faixa decorativa natalina no topo */
+.festive-top-bar {
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-red) 0 28px,
+    var(--color-gold) 28px 34px,
+    var(--color-green) 34px 62px,
+    var(--color-gold) 62px 68px
+  );
+}
+
+/* Container e Seções */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 14px;
+}
+
+.section {
+  padding-block: var(--section-py);
+}
+
+.section-white {
+  background-color: var(--color-white);
+}
+
+.section-cream {
+  background-color: var(--color-cream);
+}
+
+.section-cream-alt {
+  background-color: var(--color-cream-alt);
+}
+
+.section-offer-bg {
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-alt) 100%);
+}
+
+.section-closing {
+  background: linear-gradient(180deg, var(--color-cream-alt) 0%, var(--color-cream) 100%);
+}
+
+/* Tipografia Harmônica e Centralizada */
+.section-headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.32rem, 4.4vw, 1.65rem);
+  line-height: 1.24;
+  color: var(--color-green);
+  text-align: center;
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+
+.highlight-headline {
+  color: var(--color-red);
+}
+
+.section-subtitle {
+  font-size: 0.94rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  text-align: center;
+  text-wrap: balance;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.body-text {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  text-align: center;
+  text-wrap: pretty;
+  margin-bottom: 8px;
+}
+
+.body-text:last-child {
+  margin-bottom: 0;
+}
+
+.section-header-center {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Botões CTA */
+.cta-wrap {
+  margin-top: 14px;
+}
+
+.cta-wrap--center {
+  text-align: center;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: 50px;
+  padding: 13px 20px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-cta);
+  cursor: pointer;
+  transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background-color: var(--color-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(185, 28, 28, 0.32);
+  outline: none;
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+}
+
+.btn-cta--full {
+  max-width: 100%;
+}
+
+.trust-note {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* =========================================================
+   SEÇÃO 01 — PRIMEIRA DOBRA (COMPACTA E HARMONIOSA)
+   ========================================================= */
+.section-hero {
+  background: radial-gradient(circle at top center, #ffffff 0%, var(--color-cream) 78%);
+  padding-block: 16px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--color-gold);
+  font-size: 1rem;
+  opacity: 0.7;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sparkle-1 { top: -2px; left: 8px; }
+.sparkle-2 { top: 2px; right: 8px; color: var(--color-green-mid); opacity: 0.45; }
+.sparkle-3 { bottom: 12px; right: 14px; }
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4.8vw, 1.75rem);
+  line-height: 1.22;
+  color: var(--color-green);
+  text-align: center;
+  text-wrap: balance;
+  margin-bottom: 10px;
+}
+
+/* Área do Mockup: SEMPRE fundo transparente e object-fit: contain */
+.mockup-stage {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.mockup-stage--hero {
+  max-width: 320px;
+  min-height: 180px;
+  max-height: 240px;
+  margin-block: 6px 10px;
+}
+
+.mockup-stage--offer {
+  max-width: 290px;
+  min-height: 170px;
+  max-height: 230px;
+  margin-inline: auto;
+}
+
+.mockup-img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.hero-subheadline {
+  font-size: clamp(0.92rem, 2.8vw, 1.02rem);
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  text-align: center;
+  text-wrap: balance;
+  max-width: 380px;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   ÁREAS DE IMAGEM & PLACEHOLDERS TRANSPARENTES/LIMPOS
+   ========================================================= */
+.media-frame {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-white);
+  max-width: 380px;
+  margin-inline: auto;
+}
+
+.media-frame--compact {
+  margin-top: 10px;
+}
+
+.content-img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+}
+
+/* Estado de slot aguardando imagem real */
+.img-slot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  width: 100%;
+  min-height: 160px;
+  padding: 16px;
+  border: 2px dashed rgba(27, 67, 50, 0.25);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* Para mockups com fundo transparente: NÃO colocar fundo sólido */
+.mockup-stage .img-slot-placeholder {
+  background: transparent;
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+.img-slot-placeholder svg {
+  opacity: 0.65;
+  color: var(--color-green);
+}
+
+/* =========================================================
+   SEÇÃO 02 — IDENTIFICAÇÃO (CENTRALIZADA E COMPACTA)
+   ========================================================= */
+.split-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+.split-content {
+  text-align: center;
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.section-ornament {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-gold-soft);
+  color: var(--color-gold);
+  margin-inline: auto;
+  margin-bottom: 8px;
+}
+
+/* =========================================================
+   SEÇÃO 03 — PROBLEMA E SOLUÇÃO
+   ========================================================= */
+.ps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ps-card {
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.ps-card--problem {
+  background-color: var(--color-cream);
+}
+
+.ps-card--solution {
+  background-color: #f3f9f5;
+  border-color: rgba(27, 67, 50, 0.16);
+}
+
+.ps-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.ps-tag--problem {
+  background-color: var(--color-red-soft);
+  color: var(--color-red);
+}
+
+.ps-tag--solution {
+  background-color: var(--color-green-soft);
+  color: var(--color-green);
+}
+
+.ps-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.18rem, 3.8vw, 1.4rem);
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--color-green);
+  text-align: center;
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+
+/* =========================================================
+   SEÇÃO 04 — APRESENTAÇÃO DO PRODUTO
+   ========================================================= */
+.product-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.stat-icon {
+  color: var(--color-red);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.showcase-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-media {
+  background-color: var(--color-cream);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.showcase-media .content-img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.showcase-media .content-img--personalizacao {
+  object-position: center 88%;
+}
+
+.showcase-media .img-slot-placeholder {
+  min-height: 100%;
+  padding: 8px;
+  font-size: 0.7rem;
+  border-radius: 0;
+  border-width: 1.5px;
+}
+
+.showcase-caption {
+  padding: 8px 6px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.82rem;
+  line-height: 1.22;
+  color: var(--color-green);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Avisos em Destaque (Seção 04) */
+.product-notices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.notice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: var(--color-white);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.notice-card--digital {
+  border-color: rgba(27, 67, 50, 0.22);
+  border-left: 4px solid var(--color-green);
+  background-color: #f7fbf8;
+}
+
+.notice-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-cream-alt);
+  font-size: 0.95rem;
+}
+
+.notice-body {
+  flex: 1;
+}
+
+.notice-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-green);
+  margin-bottom: 2px;
+  line-height: 1.25;
+}
+
+.notice-desc {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* =========================================================
+   SEÇÃO 05 — PROVAS SOCIAIS (CARROSSEL MOBILE)
+   ========================================================= */
+.carousel {
+  position: relative;
+  display: block;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  width: 100%;
+  padding-block: 8px;
+  padding-inline: calc((100% - min(80%, 300px)) / 2);
+  scroll-padding-inline: calc((100% - min(80%, 300px)) / 2);
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.carousel-slide {
+  flex: 0 0 min(80%, 300px);
+  max-width: 300px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.94);
+  color: var(--color-green);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.carousel-btn--prev {
+  left: 2px;
+}
+
+.carousel-btn--next {
+  right: 2px;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus-visible {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  outline: none;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(27, 67, 50, 0.22);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.carousel-dot.is-active {
+  background-color: var(--color-red);
+  transform: scale(1.25);
+}
+
+/* =========================================================
+   SEÇÃO 06 — CARD DA OFERTA (CENTRALIZADO E COMPACTO)
+   ========================================================= */
+#oferta {
+  scroll-margin-top: 16px;
+}
+
+.offer-live-badge-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.offer-live-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-pill);
+  padding: 9px 18px;
+  box-shadow: 0 3px 12px rgba(185, 28, 28, 0.08);
+  max-width: 100%;
+}
+
+.live-dot-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #dc2626;
+  border-radius: 50%;
+  z-index: 2;
+  animation: live-dot-blink 1.4s ease-in-out infinite;
+}
+
+.live-dot-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(220, 38, 38, 0.45);
+  animation: live-dot-ping 1.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+}
+
+@keyframes live-dot-blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes live-dot-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.live-badge-text {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #991b1b;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.live-count {
+  display: inline-block;
+  font-weight: 800;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.live-count.is-updated {
+  animation: number-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes number-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.42);
+    color: #dc2626;
+  }
+  100% {
+    transform: scale(1);
+    color: #991b1b;
+  }
+}
+
+.offer-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 18px 14px 16px;
+  box-shadow: var(--shadow-md);
+  max-width: 440px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.offer-ribbon {
+  display: inline-block;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 8px;
+}
+
+.offer-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 4.2vw, 1.55rem);
+  color: var(--color-green);
+  line-height: 1.24;
+  text-align: center;
+  text-wrap: balance;
+  margin-bottom: 12px;
+}
+
+.offer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.offer-details {
+  width: 100%;
+}
+
+.offer-list-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-green);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.offer-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.offer-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.gift-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.checklist-bonus-item {
+  color: #166534;
+  font-weight: 600;
+}
+
+/* Área de Bônus da Oferta */
+.offer-bonus-section {
+  background: linear-gradient(180deg, #fffcf5 0%, #fdf8eb 100%);
+  border: 1.5px dashed var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: 12px 10px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.bonus-header {
+  margin-bottom: 10px;
+}
+
+.bonus-tag {
+  display: inline-block;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 6px;
+}
+
+.bonus-main-title {
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--color-green);
+  line-height: 1.25;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.bonus-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bonus-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bonus-mockup-slot {
+  width: 100%;
+  max-width: 240px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bonus-img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+  background: transparent;
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(44, 36, 32, 0.12));
+}
+
+.bonus-info {
+  width: 100%;
+  text-align: center;
+}
+
+.bonus-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-green);
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.bonus-price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.bonus-old-price {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+.bonus-free-badge {
+  display: inline-block;
+  background-color: #dcfce7;
+  color: #166534;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid #86efac;
+}
+
+.price-box {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-gold-soft);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.price-from {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.price-label {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-green);
+  margin-top: 1px;
+}
+
+.price-main {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 6.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-red);
+  line-height: 1.08;
+  margin-block: 1px;
+}
+
+.price-note {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* =========================================================
+   SEÇÃO 07 — GARANTIA
+   ========================================================= */
+.guarantee-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.guarantee-content {
+  text-align: center;
+}
+
+.guarantee-seal {
+  flex-shrink: 0;
+  filter: drop-shadow(0 6px 14px rgba(27, 67, 50, 0.14));
+}
+
+.guarantee-seal svg {
+  width: 135px;
+  height: 135px;
+}
+
+/* =========================================================
+   SEÇÃO 08 — REPRESENTANTE DA MARCA (CENTRALIZADA)
+   ========================================================= */
+.brand-rep-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+}
+
+.brand-rep-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.brand-rep-frame {
+  width: 170px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-gold);
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-white);
+}
+
+.brand-rep-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% 18%;
+  display: block;
+}
+
+.brand-rep-content {
+  text-align: center;
+}
+
+/* =========================================================
+   SEÇÃO 09 — FAQ (ACCORDION COMPACTO)
+   ========================================================= */
+.faq-container {
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.faq-item {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-item.is-open {
+  border-color: rgba(27, 67, 50, 0.28);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--color-green);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 2px;
+  background-color: var(--color-red);
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+.faq-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.faq-item.is-open .faq-icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 0;
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.24s ease;
+}
+
+.faq-answer[hidden] {
+  display: grid;
+  grid-template-rows: 0fr;
+}
+
+.faq-item.is-open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+}
+
+.faq-answer-inner p {
+  padding: 0 14px 12px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  text-align: left;
+}
+
+/* =========================================================
+   SEÇÃO 10 — ENCERRAMENTO (COMPACTO E INTEGRADO)
+   ========================================================= */
+.closing-inner {
+  max-width: 440px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.closing-media {
+  max-width: 380px;
+  margin-inline: auto;
+  margin-bottom: 12px;
+}
+
+.closing-headline {
+  color: var(--color-green);
+}
+
+.closing-price {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-red);
+  margin-top: 8px;
+}
+
+/* =========================================================
+   RODAPÉ (COMPACTO)
+   ========================================================= */
+.site-footer {
+  background-color: var(--color-green);
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+  padding-block: 16px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.footer-copy {
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.footer-legal {
+  opacity: 0.8;
+  max-width: 380px;
+  margin-inline: auto;
+}
+
+/* =========================================================
+   AJUSTES PARA TELAS MUITO ESTREITAS (<= 360px)
+   ========================================================= */
+@media (max-width: 360px) {
+  .container {
+    padding-inline: 12px;
+  }
+
+  .btn-cta {
+    font-size: 0.94rem;
+    padding: 12px 16px;
+  }
+
+  .offer-card {
+    padding: 22px 14px 20px;
+  }
+
+  .showcase-caption {
+    font-size: 0.78rem;
+  }
+
+  .offer-live-badge {
+    padding: 7px 14px;
+    gap: 8px;
+  }
+
+  .live-badge-text {
+    font-size: 0.82rem;
+  }
+}
